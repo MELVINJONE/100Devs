@@ -3,17 +3,32 @@
 /*******************************************/
 
 /* Box Model Hack */
-*{
+* {
   box-sizing: border-box;
+  text-align: center;
 }
 
 /******************************************
 /* LAYOUT
 /*******************************************/
-img{
+img {
   display: block;
   margin: 0 auto;
 }
+
+body {
+  background: linear-gradient(lightyellow, orange);
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  padding-left: 25vw;
+  padding-right: 10vw;
+}
+
 
 
 /******************************************

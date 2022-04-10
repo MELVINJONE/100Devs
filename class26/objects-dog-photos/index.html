@@ -15,13 +15,39 @@
 
 <body>
 
-	<h1>Which word would you like to translate to Portuguese?</h1>
-	<input type="text" name="" value="">
-	<button type="button" name="button">Translate</button>
+	<header>
+		<h1>Doggo Viewer</h1>
+		<h2>Dougie the default doggo</h2>
+	</header>
 
-	<h2>Word</h2>
-	<img src="" alt="">
-	<h3>Definition:</h3>
+	<section class="container">
+		<section class="column">
+			<section class="item">
+				<h3>Choose your Breed!</h3>
+			</section>
+			<section class="item">
+				<label for="pet-select">Choose a pet:</label>
+			</section>
+			<section class="item">
+				<select class="breeds">
+					<option value="starter" selected>--Please choose an option--</option>
+				</select>
+			</section>
+
+			<img src="http://placecorgi.com/500/500" class="dog-img" alt="cute corgi photo">
+		</section>
+
+		<section class="column">
+			<h3>Doggo Characteristics</h3>
+			<ul>
+				<li id="MF">S: Male</li>
+				<li id="age">Age: 2</li>
+				<li id="likes">Likes: ham, eggs</li>
+				<li id="dislikes">Dislikes: tomatoes</li>
+				<li id="fun-fact">Additional Info: on every walk...</li>
+			</ul>
+		</section>
+	</section>
 
 	<script type="text/javascript" src="js/main.js"></script>
 </body>
