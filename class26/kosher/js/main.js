@@ -13,12 +13,13 @@ function getFetch() {
 
     fetch(url)
         .then(res => res.json()) // parse response as JSON
-        .then(data => {
+        .then(data => { //use JSON data
             console.log(data)
-            if (data.status === 1) {
-                //call additional stuff if product is found
-                const item = new ProductInfo(data.product)
-            } else if (data.status === 0) {
+            if (data.status === 1) {  //If product is valid. Status is a specidif property in the object.
+                const item = new ProductInfo(data.product)  //call Constructor if product is found and it will build a new product/object with the assigned properties(name, ingredient, label and image)
+                // item.testCall()//calling the method to test it
+                item.showInfo() //Call the showInfo on the product
+            } else if (data.status === 0) { //If the product is not valid don't call anything
                 alert(`Product ${inputVal} not found. Please try another one.`)
             }
         })
@@ -28,14 +29,23 @@ function getFetch() {
 }
 
 class ProductInfo {
-    constructor(productData) {//I am passing in data.product
+    constructor(productData) {  //I am passing in data.product
         this.name = productData.product_name
         this.ingredients = productData.ingredients
         this.label = productData.labels
         this.image = productData.image_url
     }
 
-    testCall() {
-        console.log(this.ingredients);
+    // testCall() {
+    //     console.log(this.ingredients);
+    // }       -----------> This method is just used to check it the constructor function works and if we can see the ingredients in the console
+
+    showInfo() {
+        document.getElementById('product-img').src = this.image
+        document.getElementById('product-name').innerText = this.name
+    }
+
+    listIngredients() {
+        let tableRef = document.getElementById('ingredient-table')
     }
 }
