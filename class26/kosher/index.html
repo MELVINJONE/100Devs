@@ -6,7 +6,7 @@
 	<meta name="description" content="This is where your description goes">
 	<meta name="keywords" content="one, two, three">
 
-	<title>Title in the tab</title>
+	<title>Kosher Checker</title>
 
 	<!-- external CSS link -->
 	<link rel="stylesheet" href="css/normalize.css">
@@ -14,22 +14,22 @@
 </head>
 
 <body>
-	<h1>Write a number from 100 to 999</h1>
-	<input type="text" name="" value="">
-	<button type="button" name="button">Get Dog</button>
 
-	<h2>Name</h2>
-	<img src="" alt="">
-	<h3 id="instructions">Instructions</h3>
+	<h1>Is it Kosher?</h1>
 
-	<h3>Ingredients</h3>
-	<ul>
-		<li id="ing1"></li>
-		<li id="ing2"></li>
-		<li id="ing3"></li>
-		<li id="ing4"></li>
-		<li id="ing5"></li>
-	</ul>
+	<label for="barcode">Enter a UPC barcode number (12 digits)</label>
+	<input type="number" id="barcode" name="barcode">
+	<button type="button">Get Value</button>
+
+	<img src="" id="product-img">
+	<h2 id="product-name"></h2>
+	<table id="ingredient table">
+		<tr>
+			<th>Ingredient</th>
+			<th>Kosher?</th>
+		</tr>
+	</table>
+
 	<script type="text/javascript" src="js/main.js"></script>
 </body>
 

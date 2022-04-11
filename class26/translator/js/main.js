@@ -21,20 +21,40 @@
 //         });
 // }
 
-document.querySelector('button').addEventListener('click', findDog)
 
-function findDog() {
-    let dog = document.querySelector('input').value
+// document.querySelector('button').addEventListener('click', getWord)
 
-    fetch('https://http.dog/200.jpg')
+// function getWord() {
+//     let engWord = document.querySelector('input').value
+
+//     fetch('https://libretranslate.com/translate')
+//         .then(res => res.json())
+//         .then(data => {
+//             console.log(data.message);
+//             document.querySelector('h2').innerText = data.message
+//         })
+//         .catch(err => {
+//             console.log(`error${err}`);
+//         })
+// }
+
+
+document.querySelector('button').addEventListener('click', getWord)
+
+function getWord() {
+    let engWord = document.querySelector('input').value
+
+    fetch('https://libretranslate.com/translate')
         .then(res => res.json())
         .then(data => {
             console.log(data.message);
-            document.querySelector('img').src = data.message
+            document.querySelector('h2').innerText = data.message
         })
         .catch(err => {
             console.log(`error${err}`);
         })
-
-
 }
+
+
+
+https://libretranslate.com/docs/#/
