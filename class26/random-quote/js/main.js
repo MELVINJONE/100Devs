@@ -40,7 +40,7 @@ function getQuote() {
         .then(res => res.json())
         .then(data => {
             console.log(data.results[0]);
-            document.querySelector('.blockquote').innerHTML = data.results[0].content + ' ' + data.results[0].author;
+            document.querySelector('.blockquote').innerHTML = data.results[0].content
             document.getElementById('blockquote-footer').innerHTML = data.results[0].author
             // console.log(data.drinks[0])
             // document.querySelector('h2').innerText = data.drinks[0].strDrink
