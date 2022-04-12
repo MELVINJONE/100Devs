@@ -49,15 +49,21 @@ class ProductInfo {
     listIngredients() {
         let tableRef = document.getElementById('ingredient-table')
 
-        for (let key in this.ingredients) { //For each ingredient in our list of ingredients
-            let newRow = tableRef.insertRow(-1) //new row in our table. To append row at the end of our table use -1, like for an array if we wanna add something at the end of it use -1.
-            let newICell = newRow.insertCell(0)
-            let newVCell = newRow.insertCell(1)
-            let newIText = document.createTextNode(this.ingredients[key].text)   //Pass in some text in the space we specified. Grab each ingredient
-            let vegStatus = this.ingredients[key].vegetarian
-            let newVText = document.createTextNode(vegStatus)
-            newICell.appendChild(newIText)
-            newVCell.appendChild(newVText) //put the text into the cell
+        for (let i = 1; i < tableRef.rows.length;) { //clear rows that are below the header (so skip the 1st row). Bc otherwise it appends from the previous one.
+            tableRef.deleteRow(i) //whatever row we're on, delete the entire row. And loop through whole table. But you don't have to add the i++ bc each time you delete one row it moves up.
+        }
+        if (!(this.ingredients == null)) { //check if ingredients are not null and then enter the for loop
+
+            for (let key in this.ingredients) { //For each ingredient in our list of ingredients
+                let newRow = tableRef.insertRow(-1) //inserts new row in our table at the end. To append row at the end of our table use -1, like for an array if we wanna add something at the end of it use -1.
+                let newICell = newRow.insertCell(0) //insert a cell
+                let newVCell = newRow.insertCell(1) //insert another cell
+                let newIText = document.createTextNode(this.ingredients[key].text)   //Pass in some text in the space we specified. Create new text value for each ingredient
+                let vegStatus = this.ingredients[key].vegetarian
+                let newVText = document.createTextNode(vegStatus) //Create new status for the vegetarian
+                newICell.appendChild(newIText) //put text value inside cell we created
+                newVCell.appendChild(newVText) //put the text into the cell
+            }
         }
     }
 }
