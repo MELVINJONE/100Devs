@@ -19,6 +19,7 @@ function getFetch() {
                 const item = new ProductInfo(data.product)  //call Constructor if product is found and it will build a new product/object with the assigned properties(name, ingredient, label and image)
                 // item.testCall()//calling the method to test it
                 item.showInfo() //Call the showInfo on the product
+                item.listIngredients() //Call method
             } else if (data.status === 0) { //If the product is not valid don't call anything
                 alert(`Product ${inputVal} not found. Please try another one.`)
             }
@@ -55,6 +56,8 @@ class ProductInfo {
             let newIText = document.createTextNode(this.ingredients[key].text)   //Pass in some text in the space we specified. Grab each ingredient
             let vegStatus = this.ingredients[key].vegetarian
             let newVText = document.createTextNode(vegStatus)
+            newICell.appendChild(newIText)
+            newVCell.appendChild(newVText) //put the text into the cell
         }
     }
 }
