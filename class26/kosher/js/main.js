@@ -63,6 +63,13 @@ class ProductInfo {
                 let newVText = document.createTextNode(vegStatus) //Create new status for the vegetarian
                 newICell.appendChild(newIText) //put text value inside cell we created
                 newVCell.appendChild(newVText) //put the text into the cell
+                if (vegStatus === 'no') {
+                    newVCell.classList.add('non-veg-item') //will add a class
+                    //turn item red
+                } else if (vegStatus === 'unknown' || vegStatus === 'maybe') {
+                    newVCell.classList.add('unknown-maybe-item')
+                    //turn yellow
+                }
             }
         }
     }
