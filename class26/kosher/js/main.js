@@ -47,5 +47,14 @@ class ProductInfo {
 
     listIngredients() {
         let tableRef = document.getElementById('ingredient-table')
+
+        for (let key in this.ingredients) { //For each ingredient in our list of ingredients
+            let newRow = tableRef.insertRow(-1) //new row in our table. To append row at the end of our table use -1, like for an array if we wanna add something at the end of it use -1.
+            let newICell = newRow.insertCell(0)
+            let newVCell = newRow.insertCell(1)
+            let newIText = document.createTextNode(this.ingredients[key].text)   //Pass in some text in the space we specified. Grab each ingredient
+            let vegStatus = this.ingredients[key].vegetarian
+            let newVText = document.createTextNode(vegStatus)
+        }
     }
 }
