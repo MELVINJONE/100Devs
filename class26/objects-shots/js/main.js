@@ -1,33 +1,13 @@
 // //The user will enter a cocktail. Get a cocktail name, photo, and instructions and place them in the DOM
 
-// document.querySelector('button').addEventListener('click', getDrink)
+let forward = document.querySelector('.forward');
+let back = document.querySelector('.back');
 
-// function getDrink() {
-//     let drink = document.querySelector('input').value
+[forward, back].map(element =>element.addEventListener('click', getDrink))
 
-//     fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
-//         .then(res => res.json())
-//         .then(data => {
-//             console.log(data)
-//             document.querySelector('h2').innerText = data.drinks.strDrink
-//             document.querySelector('img').src = data.drinks.strDrinkThumb
-//             document.querySelector('#instructions').innerText = data.drinks.strInstructions
-//             document.querySelector('#ing1').innerText = data.strMeasure1 + ' ' + data.strIngredient1
-//             document.querySelector('#ing2').innerText = `${data.drinks[0].strMeasure2} ${data.drinks[0].strIngredient2}`
-//             document.querySelector('#ing3').innerText = `${data.drinks[0].strMeasure3} ${data.drinks[0].strIngredient3}`
-//             document.querySelector('#ing4').innerText = `${data.drinks[0].strMeasure4} ${data.drinks[0].strIngredient4}`
-//             document.querySelector('#ing5').innerText = `${data.drinks[0].strMeasure5} ${data.drinks[0].strIngredient5}`
-//         })
-//         .catch(err => {
-//             console.log(`error ${err}`);
-//         });
-// }
+// document.querySelector('.forward').addEventListener('click', getDrink)
 
-
-
-document.querySelector('.forward').addEventListener('click', getFetch)
-
-function getFetch(){
+function getDrink(){
 //   const choice = document.querySelector('input').value
   const url = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
 
