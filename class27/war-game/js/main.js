@@ -1,25 +1,29 @@
-//Example fetch using pokemonapi.co
-document.querySelector('button').addEventListener('click', getFetch)
+let deckID ='' //It's a global variable
 
-function getFetch() {
-  const choice = document.querySelector('input').value
-  console.log(choice);
-  const url = `https://api.nasa.gov/planetary/apod?api_key=Dt6kUnBI1ut2wbrnjGHzI42YPguPd3bkQ1eI3YGQ&date=${choice}`
-
-  fetch(url)
+fetch('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
     .then(res => res.json()) // parse response as JSON
     .then(data => {
       console.log(data)
-      if (data.media_type == 'image') {
-        document.querySelector('img').src = data.hdurl
-        document.querySelector('h2').innerText = data.explanation
-      } else if (data.media_type === 'video') {
-        document.querySelector('img').iframe = data.hdurl
-        document.querySelector('h2').innerText = data.explanation
-      }
+      deckID = data.deck_id
     })
     .catch(err => {
       console.log(`error ${err}`)
     });
+
+document.querySelector('button').addEventListener('click', drawTwo)
+
+function drawTwo() {
+  const choice = document.querySelector('input').value
+  console.log(choice);
+  const url = `https://api.nasa.gov/planetary/apod?api_key=Dt6kUnBI1ut2wbrnjGHzI42YPguPd3bkQ1eI3YGQ&date=${choice}`
+  fetch('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
+  .then(res => res.json()) // parse response as JSON
+  .then(data => {
+    console.log(data)
+  })
+  .catch(err => {
+    console.log(`error ${err}`)
+  });
+  
 }
 
