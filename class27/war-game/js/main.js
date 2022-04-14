@@ -21,12 +21,14 @@ function drawTwo() {
     console.log(data)
     document.querySelector('#player1').src = data.cards[0].image
     document.querySelector('#player2').src = data.cards[1].image
-    let player1Val = data.cards[0].value
-    let player2Val = data.cards[1].value
+    let player1Val = Number(data.cards[0].value)
+    let player2Val = Number(data.cards[1].value)
     if(player1Val > player2Val){
       document.querySelector('h3').innerText = ' Player 1 wins'
     }else if(player1Val < player2Val){
       document.querySelector('h3').innerText = ' Player 2 wins'
+    }else{
+      document.querySelector('h3').innerText = 'No one wins. Time for WAR'
     }
 
   })
@@ -34,5 +36,17 @@ function drawTwo() {
     console.log(`error ${err}`)
   });
   
+}
+
+function convertVal (val){
+  if(val === 'ACE'){
+    return 14
+  }else if(val === 'KING'){
+    return 13
+  }else if(val === 'QUEEN'){
+    return 12
+  }else if(val === 'JACK'){
+    return 11
+  }
 }
 
