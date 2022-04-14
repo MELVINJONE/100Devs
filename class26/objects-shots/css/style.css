@@ -10,12 +10,52 @@
 /******************************************
 /* LAYOUT
 /*******************************************/
+
+body{
+  background: linear-gradient(white, lightyellow);
+  height: 100vh;
+}
+
+h1, h2, h3, ul{
+  text-align: center;
+  list-style: none;
+}
+
+
 img {
   display: block;
   margin: 0 auto;
-  height: 200px;
+  height: 400px;
 }
 
+ul{
+  margin-left: -40px;
+}
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.back, .forward {
+  cursor: pointer;
+  position: absolute;
+  top: 48%;
+  width: auto;
+  margin-top: -23px;
+  padding: 17px;
+  color: grey;
+  font-weight: bold;
+  font-size: 19px;
+  transition: 0.4s ease;
+  border-radius: 0 5px 5px 0;
+  user-select: none;
+}
+.forward {
+  right: 0;
+  border-radius: 4px 0 0 4px;
+}
 
 /******************************************
 /* ADDITIONAL STYLES
