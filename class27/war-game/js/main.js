@@ -23,6 +23,11 @@ function drawTwo() {
     document.querySelector('#player2').src = data.cards[1].image
     let player1Val = data.cards[0].value
     let player2Val = data.cards[1].value
+    if(player1Val > player2Val){
+      document.querySelector('h3').innerText = ' Player 1 wins'
+    }else if(player1Val < player2Val){
+      document.querySelector('h3').innerText = ' Player 2 wins'
+    }
 
   })
   .catch(err => {
